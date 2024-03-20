@@ -2,7 +2,7 @@ import React from 'react'
 import { IonIcon } from '@ionic/react'
 type Props = {}
 
-const header = (props: Props) => {
+const Header = (props: Props) => {
   return (
     <header className='bg text-white align-items-center py-4'>
       <div className='container-fluid'>
@@ -29,4 +29,4 @@ const header = (props: Props) => {
   )
 }
 
-export default header
+export default Header

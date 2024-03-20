@@ -1,42 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { TProduct } from './interface/product.ts'
-import { userType } from './interface/user.ts'
-import { CartType } from './interface/cart.ts'
+import { Route, Routes } from 'react-router-dom'
+import Footer from './components/footer'
+import Header from './components/header'
+import Home from './pages/home'
+import Login from './pages/Login'
+import Notfound from './pages/NotFound'
+import ProductDetail from './pages/ProductDetail'
+import Register from './pages/Register'
+import Shop from './pages/Shop'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import Navbar from './components/Navbar '
+import DropdownMenu from './components/DropdownMenu'
 function App() {
-  const [count, setCount] = useState(0)
-
-  //cleanup funtion
   return (
     <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+      <div className='app'>
+        <Navbar />
+        <DropdownMenu />
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/shop/:id' element={<ProductDetail />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='*' element={<Notfound />} />
+        </Routes>
+        <Footer />
       </div>
-      <h1>product title:{product.title}</h1>
-      <h1>user firstName: {user.firstName}</h1>
-      <h1>
-        {cart.products.map((item, index) => (
-          <ul>
-            <li>{item.title}</li>
-          </ul>
-        ))}
-      </h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
     </>
   )
 }
