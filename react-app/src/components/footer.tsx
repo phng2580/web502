@@ -1,5 +1,8 @@
 import React from 'react'
-import { IonIcon } from '@ionic/react'
+import { FaFacebook } from 'react-icons/fa'
+import { FaTwitter } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
+import { FaLinkedin } from 'react-icons/fa'
 type Props = {}
 
 const Footer: React.FC<Props> = (props) => {
@@ -9,12 +12,12 @@ const Footer: React.FC<Props> = (props) => {
         <div className='row footer-content'>
           <div className='col-md-6'>
             <h5>About Us</h5>
-            <p>abcxyzbcd</p>
+            <p>phuongbmph30949</p>
           </div>
           <div className='col-md-6'>
             <h5>Contact Us</h5>
             <p>
-              Email: info@example.com
+              Email: phuongbui2580@gmail.com
               <br />
               Phone: +1234567890
             </p>
@@ -23,20 +26,20 @@ const Footer: React.FC<Props> = (props) => {
         <hr />
         <div className='row'>
           <div className='col-md-6'>
-            <p>&copy; 2024 Your Company</p>
+            <p>&copy; 2024 BMP Company</p>
           </div>
           <div className='col-md-6 text-md-end social-icons'>
-            <a href='#'>
-              <IonIcon icon='logo-facebook' />
+            <a href='#' className='px-1'>
+              <FaFacebook />
             </a>
-            <a href='#'>
-              <IonIcon icon='logo-twitter' />
+            <a href='#' className='px-1'>
+              <FaTwitter />
             </a>
-            <a href='#'>
-              <IonIcon icon='logo-instagram' />
+            <a href='#' className='px-1'>
+              <FaInstagram />
             </a>
-            <a href='#'>
-              <IonIcon icon='logo-linkedin' />
+            <a href='#' className='px-1'>
+              <FaLinkedin />
             </a>
           </div>
         </div>

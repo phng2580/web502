@@ -24,7 +24,9 @@ const Product = (props: TProps) => {
                   <p className='card-text' style={{ maxHeight: '20px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {product.description}
                   </p>
-                  <p>{product.price}</p>
+                  <p className='fw-bold' style={{ color: 'rgb(247, 7, 87)' }}>
+                    {product.price}$
+                  </p>
                   <p>{product.discountPercentage && 'Dang cap nhat'}</p>
 
                   <div className='d-flex justify-content-center'>
