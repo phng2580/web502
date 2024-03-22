@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { TProduct } from '~/interface/product'
 
 type TProps = {
@@ -13,17 +14,19 @@ const Product = (props: TProps) => {
         <div className='row'>
           {props.products.map((product) => (
             <div className='col-md-4 mb-4' key={product.id}>
-              <div className='card'>
-                <img src={product.thumbnail} className='card-img-top' alt='Product 1' />
-                <div className='card-body'>
-                  <h5 className='card-title'>{product.title}</h5>
-                  <p className='card-text'>{product.description}</p>
+              <div className='card' style={{ maxHeight: '600px' }}>
+                <img src={product.thumbnail} className='card-img-top' alt='Product 1' style={{ maxHeight: '200px' }} />
+                <div className='card-body '>
+                  <Link to={`/shop/${product.id}`}>
+                    <h5 className='card-title'>{product.title}</h5>
+                  </Link>
+
+                  <p className='card-text' style={{ maxHeight: '20px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {product.description}
+                  </p>
                   <p>{product.price}</p>
                   <p>{product.discountPercentage && 'Dang cap nhat'}</p>
-                  <p>{product.rating}</p>
-                  <p>{product.stock}</p>
-                  <p>{product.brand}</p>
-                  <p>{product.category}</p>
+
                   <div className='d-flex justify-content-center'>
                     <a
                       href='#'

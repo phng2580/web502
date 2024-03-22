@@ -1,5 +1,6 @@
 import React from 'react'
 import { IonIcon } from '@ionic/react'
+import { IoMdList } from 'react-icons/io'
 type Props = {}
 
 const DropdownMenu = (props: Props) => {
@@ -15,7 +16,7 @@ const DropdownMenu = (props: Props) => {
             aria-expanded='false'
           >
             <div className='d-flex align-items-center'>
-              <IonIcon name='list-sharp' className='pe-1'></IonIcon>
+              <IoMdList name='list-sharp' className='pe-1'></IoMdList>
               <p className='mb-0'>Danh mục:</p>
             </div>
           </button>
