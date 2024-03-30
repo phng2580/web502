@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import instance from '~/api'
+import NavDetail from '~/components/NavDetail'
 import { TProduct } from '~/interface/product'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 type Props = {}
 
@@ -25,12 +27,14 @@ const ProductDetail = (props: Props) => {
   }, [])
   return (
     <div>
-      <h1>Chi tiet san pham</h1>
+      <NavDetail />
       <div>
-        <h2>{product.title}</h2>
-        <p>Gia: {product.price}</p>
-        <p>{product.description}</p>
-        <img src={product.thumbnail} alt={product.title} />
+        <div className='pb-5'>
+          <h2>{product.title}</h2>
+          <p>Gia: {product.price}</p>
+          <p>{product.description}</p>
+          <img src={product.thumbnail} alt={product.title} style={{ height: '200px' }} />
+        </div>
       </div>
     </div>
   )

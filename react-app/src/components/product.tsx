@@ -15,7 +15,7 @@ const Product = (props: TProps) => {
           {props.products.map((product) => (
             <div className='col-md-4 mb-4' key={product.id}>
               <div className='card' style={{ maxHeight: '600px' }}>
-                <img src={product.thumbnail} className='card-img-top' alt='Product 1' style={{ maxHeight: '200px' }} />
+                <img src={product.thumbnail} className='card-img-top' alt='Product 1' style={{ height: '200px' }} />
                 <div className='card-body '>
                   <Link to={`/shop/${product.id}`}>
                     <h5 className='card-title'>{product.title}</h5>
