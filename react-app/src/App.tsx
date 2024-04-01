@@ -62,7 +62,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path='/admin/list' element={<List products={products} />} />
             <Route path='/admin/addProduct' element={<Add onAdd={handleAdd} />} />
-            <Route path='/admin/editProduct' element={<Edit />} />
+            <Route path='/admin/edit/:id' element={<Edit onEdit={handleEdit} />} />
           </Route>
           <Route>
             <Route path='*' element={<Notfound />} />

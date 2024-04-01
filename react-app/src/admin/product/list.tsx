@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Navitem from '~/components/Navitem'
 import Navbaradmin from '~/components/navbar_admin'
 import { TProduct } from '~/interface/product'
@@ -52,7 +53,10 @@ const List = ({ products }: Props) => {
                   </td>
                   <td className='text-nowrap' style={{ width: ' 1px' }}>
                     <button className='btn btn-primary btn-sm'>Xem</button>
-                    <button className='btn btn-warning btn-sm'>Sửa</button>
+                    <Link to={`/admin/edit/${item.id}`} className='btn btn-warning btn-sm'>
+                      Sửa
+                    </Link>
+                    {/* <button className='btn btn-warning btn-sm'>Sửa</button> */}
                     <button className='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#modalDel'>
                       Xóa
                     </button>
