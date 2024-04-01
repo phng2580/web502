@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Footer from './components/footer'
 import Header from './components/header'
 import Home from './pages/home'
@@ -15,9 +15,13 @@ import List from './admin/product/list'
 import { useEffect, useState } from 'react'
 import { TProduct } from './interface/product'
 import Product from './components/product'
+import Add from './admin/product/add'
+import { creatProduct } from './api/product'
+import Edit from './admin/product/Edit'
+import instance from './api'
 function App() {
   const [products, setProducts] = useState<TProduct[]>([])
-
+  const navigate = useNavigate()
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then((res) => res.json())
@@ -25,6 +29,20 @@ function App() {
         setProducts(data)
       })
   }, [])
+  const handleAdd = (data: TProduct) => {
+    ;(async () => {
+      const newProduct = await creatProduct(data)
+      setProducts([...products, newProduct])
+      navigate('/admin/list')
+    })()
+  }
+  const handleEdit = (product: TProduct) => {
+    ;(async () => {
+      const { data } = await instance.put(`/products/${product.id}`, product)
+      setProducts(products.map((item) => (item.id === data.id ? data : item)))
+      navigate('/admin/list')
+    })()
+  }
 
   return (
     <>
@@ -43,6 +61,8 @@ function App() {
           <Route path='/admin'>
             <Route index element={<Dashboard />} />
             <Route path='/admin/list' element={<List products={products} />} />
+            <Route path='/admin/addProduct' element={<Add onAdd={handleAdd} />} />
+            <Route path='/admin/editProduct' element={<Edit />} />
           </Route>
           <Route>
             <Route path='*' element={<Notfound />} />
